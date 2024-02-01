@@ -1,11 +1,8 @@
 package com.example.demo.Controller;
-
 import com.example.demo.Contract.EmployeeRequest;
 import com.example.demo.Contract.EmployeeResponse;
 import com.example.demo.Service.EmployeeService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
