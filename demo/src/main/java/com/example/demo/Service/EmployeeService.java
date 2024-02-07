@@ -29,7 +29,7 @@ public class EmployeeService {
     }
 
     public EmployeeResponse getById(long id){
-        Optional<Employee> employee=employeeRepository.findById(id);
+        Employee employee=employeeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("not found"));
         return modelMapper.map(employee, EmployeeResponse.class);
     }
     public List<EmployeeResponse> getByDepart(String dname){
