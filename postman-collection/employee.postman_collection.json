@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "495a1a94-887a-444d-b8ef-3540e02f3e8c",
+		"name": "employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30590501",
+		"_collection_link": "https://grey-satellite-323625.postman.co/workspace/New-Team-Workspace~912cba8b-6b51-43bf-998e-bae1137a8121/collection/30590501-495a1a94-887a-444d-b8ef-3540e02f3e8c?action=share&source=collection_link&creator=30590501"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\":1,\r\n\"name\":\"sree\",\r\n\"email\":\"sree@gmail.com\",\r\n\"department\":\"civil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getByDept",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
