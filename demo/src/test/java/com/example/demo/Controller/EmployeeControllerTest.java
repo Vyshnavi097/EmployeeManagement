@@ -2,7 +2,6 @@ package com.example.demo.Controller;
 
 import com.example.demo.Contract.EmployeeRequest;
 import com.example.demo.Contract.EmployeeResponse;
-import com.example.demo.Model.Employee;
 import com.example.demo.Service.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -19,13 +17,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.reflect.Array.get;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.modelmapper.internal.bytebuddy.matcher.ElementMatchers.is;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -68,8 +68,20 @@ public class EmployeeControllerTest {
                 .andExpect(MockMvcResultMatchers.content()
                         .string("{\"id\":1,\"name\":\"Name\",\"email\":\"name@example.org\",\"department\":\"Department\"}"));
     }
+    @Test
+    public void testEmployeeByDept() throws Exception {
+        String dname = "Sales";
 
+        List<EmployeeResponse> employeeList = new ArrayList<>();
+        employeeList.add(new EmployeeResponse(1L, "John Doe", dname, "Manager"));
+        employeeList.add(new EmployeeResponse(1L, "Jane Doe", dname, "Sales Representative"));
 
+        Mockito.when(employeeService.getByDepart(dname)).thenReturn(employeeList);
+
+        mockMvc.perform(get("/employees")
+                        .param("dname", dname))
+                .andExpect(status().isOk());
+    }
 
 
 
