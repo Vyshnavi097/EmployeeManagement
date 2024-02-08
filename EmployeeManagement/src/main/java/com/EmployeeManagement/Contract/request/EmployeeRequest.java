@@ -1,4 +1,4 @@
-package com.example.demo.Contract;
+package com.EmployeeManagement.Contract.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

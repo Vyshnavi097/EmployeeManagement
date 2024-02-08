@@ -1,7 +1,7 @@
-package com.example.demo.Controller;
-import com.example.demo.Contract.EmployeeRequest;
-import com.example.demo.Contract.EmployeeResponse;
-import com.example.demo.Service.EmployeeService;
+package com.EmployeeManagement.Controller;
+import com.EmployeeManagement.Contract.request.EmployeeRequest;
+import com.EmployeeManagement.Contract.response.EmployeeResponse;
+import com.EmployeeManagement.Service.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

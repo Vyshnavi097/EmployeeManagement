@@ -1,8 +1,8 @@
-package com.example.demo.Controller;
+package com.EmployeeManagement.Controller;
 
-import com.example.demo.Contract.EmployeeRequest;
-import com.example.demo.Contract.EmployeeResponse;
-import com.example.demo.Service.EmployeeService;
+import com.EmployeeManagement.Contract.request.EmployeeRequest;
+import com.EmployeeManagement.Contract.response.EmployeeResponse;
+import com.EmployeeManagement.Service.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
