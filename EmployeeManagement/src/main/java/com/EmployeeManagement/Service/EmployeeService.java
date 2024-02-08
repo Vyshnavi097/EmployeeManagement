@@ -4,7 +4,7 @@ import com.EmployeeManagement.Contract.request.EmployeeRequest;
 import com.EmployeeManagement.Contract.response.EmployeeResponse;
 import com.EmployeeManagement.Model.Employee;
 import com.EmployeeManagement.Repository.EmployeeRepository;
-import jakarta.persistence.EntityNotFoundException;
+import com.EmployeeManagement.exception.EmployeeNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -26,13 +26,13 @@ public class EmployeeService {
     }
 
     public EmployeeResponse getById(long id){
-        Employee employee=employeeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("not found"));
+        Employee employee=employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFoundException("not found"));
         return modelMapper.map(employee, EmployeeResponse.class);
     }
-    public List<EmployeeResponse> getByDepart(String dname){
+    public List<EmployeeResponse> departmentById(String departmentName){
         List<Employee> employees=employeeRepository.findAll();
         List<Employee> employees1= employees.stream()
-                .filter(employee -> employee.getDepartment().equals(dname))
+                .filter(employee -> employee.getDepartment().equals(departmentName))
                 .collect(Collectors.toList());
         return employees1.stream()
                 .map(employee -> modelMapper.map(employee, EmployeeResponse.class))

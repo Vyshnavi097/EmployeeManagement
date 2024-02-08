@@ -29,8 +29,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees")
-        public List<EmployeeResponse>  employeeByDept(@RequestParam String dname){
-        return employeeService.getByDepart(dname);
+        public List<EmployeeResponse>  departmentById(@RequestParam String departmentName){
+        return employeeService.departmentById(departmentName);
     }
     }
 

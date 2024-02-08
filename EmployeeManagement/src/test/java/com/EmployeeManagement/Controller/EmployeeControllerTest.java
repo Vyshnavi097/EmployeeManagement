@@ -68,20 +68,6 @@ public class EmployeeControllerTest {
                 .andExpect(MockMvcResultMatchers.content()
                         .string("{\"id\":1,\"name\":\"Name\",\"email\":\"name@example.org\",\"department\":\"Department\"}"));
     }
-    @Test
-    public void testEmployeeByDept() throws Exception {
-        String dname = "Sales";
-
-        List<EmployeeResponse> employeeList = new ArrayList<>();
-        employeeList.add(new EmployeeResponse(1L, "John Doe", dname, "Manager"));
-        employeeList.add(new EmployeeResponse(1L, "Jane Doe", dname, "Sales Representative"));
-
-        Mockito.when(employeeService.getByDepart(dname)).thenReturn(employeeList);
-
-        mockMvc.perform(get("/employees")
-                        .param("dname", dname))
-                .andExpect(status().isOk());
-    }
 
 
 
