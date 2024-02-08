@@ -21,16 +21,16 @@ import java.util.List;
 public class EmployeeController {
     private  final EmployeeService employeeService;
 
-    @PostMapping("/employees")
+    @PostMapping("/employee")
     public EmployeeResponse create(@Valid @RequestBody EmployeeRequest employeeRequest){
         return employeeService.create(employeeRequest);
     }
-    @GetMapping("/employees/{id}")
+    @GetMapping("/employee/{id}")
     public EmployeeResponse getById(@PathVariable long id){
         return employeeService.getById(id);
     }
 
-    @GetMapping("/employees")
+    @GetMapping("/employee")
         public List<EmployeeResponse>  departmentById(@RequestParam String departmentName){
         return employeeService.departmentById(departmentName);
     }
