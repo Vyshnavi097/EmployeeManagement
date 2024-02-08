@@ -1,9 +1,9 @@
-package com.example.demo.Service;
+package com.EmployeeManagement.Service;
 
-import com.example.demo.Contract.EmployeeRequest;
-import com.example.demo.Contract.EmployeeResponse;
-import com.example.demo.Model.Employee;
-import com.example.demo.Repository.EmployeeRepository;
+import com.EmployeeManagement.Model.Employee;
+import com.EmployeeManagement.Repository.EmployeeRepository;
+import com.EmployeeManagement.Contract.request.EmployeeRequest;
+import com.EmployeeManagement.Contract.response.EmployeeResponse;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

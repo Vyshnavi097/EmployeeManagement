@@ -1,18 +1,15 @@
-package com.example.demo.Service;
+package com.EmployeeManagement.Service;
 
-import com.example.demo.Contract.EmployeeRequest;
-import com.example.demo.Contract.EmployeeResponse;
-import com.example.demo.Model.Employee;
-import com.example.demo.Repository.EmployeeRepository;
+import com.EmployeeManagement.Contract.request.EmployeeRequest;
+import com.EmployeeManagement.Contract.response.EmployeeResponse;
+import com.EmployeeManagement.Model.Employee;
+import com.EmployeeManagement.Repository.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
